@@ -1,0 +1,67 @@
+[
+  {
+    "memeUrl": "https://api.memegen.link/images/ds/Buy_Ethereum/Pay_Rent.png",
+    "subreddit": "ethtrader",
+    "relatedAsset": "ethereum"
+  },
+  {
+    "memeUrl": "https://api.memegen.link/images/fine/Ethereum_Gas_Fees.png",
+    "subreddit": "ethereum",
+    "relatedAsset": "ethereum"
+  },
+  {
+    "memeUrl": "https://api.memegen.link/images/drake/Fiat_Currency/Bitcoin.png",
+    "subreddit": "bitcoin",
+    "relatedAsset": "bitcoin"
+  },
+  {
+    "memeUrl": "https://api.memegen.link/images/rollsafe/Can't_lose_money/If_you_never_sell.png",
+    "subreddit": "bitcoin",
+    "relatedAsset": "bitcoin"
+  },
+  {
+    "memeUrl": "https://api.memegen.link/images/oprah/You_get_Dogecoin!/And_you_get_Dogecoin!.png",
+    "subreddit": "dogecoin",
+    "relatedAsset": "dogecoin"
+  },
+  {
+    "memeUrl": "https://api.memegen.link/images/doge/such_crypto/much_wow/very_invest.png",
+    "subreddit": "dogecoin",
+    "relatedAsset": "dogecoin"
+  },
+  {
+    "memeUrl": "https://api.memegen.link/images/buzz/Cardano_Smart_Contracts/Everywhere.png",
+    "subreddit": "cardano",
+    "relatedAsset": "cardano"
+  },
+  {
+    "memeUrl": "https://api.memegen.link/images/db/Waiting_for/Cardano_updates.png",
+    "subreddit": "cardano",
+    "relatedAsset": "cardano"
+  },
+  {
+    "memeUrl": "https://api.memegen.link/images/spiderman/Solana_Network/Going_Down.png",
+    "subreddit": "solana",
+    "relatedAsset": "solana"
+  },
+  {
+    "memeUrl": "https://api.memegen.link/images/away/Solana_transactions/are_fast.png",
+    "subreddit": "solana",
+    "relatedAsset": "solana"
+  },
+  {
+    "memeUrl": "https://api.memegen.link/images/ch/Chainlink_Oracles/They_know_everything.png",
+    "subreddit": "chainlink",
+    "relatedAsset": "chainlink"
+  },
+  {
+    "memeUrl": "https://api.memegen.link/images/money/Me_after_buying/Polkadot_at_the_top.png",
+    "subreddit": "polkadot",
+    "relatedAsset": "polkadot"
+  },
+  {
+    "memeUrl": "https://api.memegen.link/images/trade/I_receive_your_fiat/You_receive_crypto.png",
+    "subreddit": "cryptocurrencymemes",
+    "relatedAsset": "general crypto"
+  }
+]

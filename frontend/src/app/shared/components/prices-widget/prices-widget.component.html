@@ -1,0 +1,33 @@
+<div class="glass-card widget-card">
+  <h3>📈 Coin Prices</h3>
+  
+  <div class="loader-container" *ngIf="isLoading; else content">
+    <div class="spinner"></div>
+    <div>Fetching real-time prices...</div>
+  </div>
+
+  <ng-template #content>
+    <div class="prices-list" *ngIf="objectKeys(prices).length > 0; else noData">
+      <div class="price-item" *ngFor="let coin of objectKeys(prices)">
+        <div class="coin-info">
+          <span class="coin-name">{{ coin | titlecase }}</span>
+        </div>
+        <div class="price-data">
+          <span class="price">${{ prices[coin].usd | number:'1.2-2' }}</span>
+          <span class="change" [class.positive]="prices[coin].usd_24h_change > 0" [class.negative]="prices[coin].usd_24h_change < 0">
+            {{ prices[coin].usd_24h_change > 0 ? '+' : '' }}{{ prices[coin].usd_24h_change | number:'1.2-2' }}%
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <ng-template #noData>
+      <div class="placeholder-content">No pricing data available.</div>
+    </ng-template>
+  </ng-template>
+
+  <div class="feedback-actions" *ngIf="!isLoading">
+    <button class="btn-icon" title="I like this" (click)="vote(true)" [disabled]="voteState !== null" [class.voted]="voteState === true">👍</button>
+    <button class="btn-icon" title="I dislike this" (click)="vote(false)" [disabled]="voteState !== null" [class.voted]="voteState === false">👎</button>
+  </div>
+</div>

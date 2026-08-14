@@ -1,0 +1,23 @@
+<div class="glass-card widget-card meme-card">
+  <h3>🤡 Fun Crypto Meme</h3>
+  
+  <div class="loader-container" *ngIf="isLoading; else content">
+    <div class="spinner"></div>
+    <div>Scraping latest crypto meme...</div>
+  </div>
+
+  <ng-template #content>
+    <div class="meme-container" *ngIf="memeUrl; else noData">
+      <img [src]="memeUrl" alt="Crypto Meme" class="meme-image" />
+    </div>
+    
+    <ng-template #noData>
+      <div class="placeholder-content">No meme available today.</div>
+    </ng-template>
+  </ng-template>
+
+  <div class="feedback-actions" *ngIf="!isLoading && memeUrl">
+    <button class="btn-icon" title="I like this" (click)="vote(true)" [disabled]="voteState !== null" [class.voted]="voteState === true">👍</button>
+    <button class="btn-icon" title="I dislike this" (click)="vote(false)" [disabled]="voteState !== null" [class.voted]="voteState === false">👎</button>
+  </div>
+</div>

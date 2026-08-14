@@ -1,0 +1,72 @@
+<div class="settings-container">
+  <div class="glass-card settings-card">
+    <h1 class="page-title">Settings</h1>
+    <p class="subtitle">Customize your dashboard experience.</p>
+
+    <div *ngIf="isLoading" class="loader-container">
+      <div class="spinner"></div>
+      <div>Loading your preferences...</div>
+    </div>
+
+    <div *ngIf="!isLoading" class="settings-sections">
+      <!-- Assets -->
+      <section class="settings-section">
+        <h2>Your Coins</h2>
+        <div class="checkbox-grid">
+          <label *ngFor="let asset of availableAssets" class="custom-checkbox glass-card">
+            <input 
+              type="checkbox" 
+              [checked]="preferences.interestedAssets.includes(asset.id)"
+              (change)="toggleArrayItem(preferences.interestedAssets, asset.id)"
+            >
+            <span>{{ asset.name }}</span>
+          </label>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- Persona -->
+      <section class="settings-section">
+        <h2>Your Persona</h2>
+        <div class="radio-grid">
+          <label *ngFor="let type of investorTypes" class="custom-radio glass-card">
+            <input 
+              type="radio" 
+              name="investorType" 
+              [value]="type" 
+              [(ngModel)]="preferences.investorType"
+            >
+            <span>{{ type }}</span>
+          </label>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- Content -->
+      <section class="settings-section">
+        <h2>Dashboard Content</h2>
+        <div class="checkbox-grid">
+          <label *ngFor="let content of availableContent" class="custom-checkbox glass-card">
+            <input 
+              type="checkbox" 
+              [checked]="preferences.preferredContent.includes(content.id)"
+              (change)="toggleArrayItem(preferences.preferredContent, content.id)"
+            >
+            <span>{{ content.name }}</span>
+          </label>
+        </div>
+      </section>
+
+      <div *ngIf="error" class="error-msg mt-4">{{ error }}</div>
+
+      <div class="action-buttons mt-4">
+        <button class="btn-secondary" (click)="cancel()" [disabled]="isSaving">Cancel</button>
+        <button class="btn-primary" (click)="save()" [disabled]="isSaving">
+          {{ isSaving ? 'Saving...' : 'Save Changes' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

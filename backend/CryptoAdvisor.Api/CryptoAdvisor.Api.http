@@ -1,0 +1,6 @@
+@CryptoAdvisor.Api_HostAddress = http://localhost:5269
+
+GET {{CryptoAdvisor.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

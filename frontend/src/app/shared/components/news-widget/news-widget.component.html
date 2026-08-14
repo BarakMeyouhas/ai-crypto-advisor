@@ -1,0 +1,24 @@
+<div class="glass-card widget-card">
+  <h3>📰 Market News</h3>
+  
+  <div class="loader-container" *ngIf="isLoading; else content">
+    <div class="spinner"></div>
+    <div>Loading latest news...</div>
+  </div>
+
+  <ng-template #content>
+    <div class="news-content" *ngIf="news && news.length > 0; else noData">
+      <span class="news-title">{{ news[0].title }}</span>
+      <span class="news-domain">{{ news[0].domain }}</span>
+    </div>
+    
+    <ng-template #noData>
+      <div class="placeholder-content">No news found for your interests.</div>
+    </ng-template>
+
+    <div class="feedback-actions" *ngIf="news && news.length > 0">
+      <button class="btn-icon" (click)="vote(news[0], true)" [disabled]="votedItems.has(news[0].url || news[0].title)" [class.voted]="votedItems.get(news[0].url || news[0].title) === true">👍</button>
+      <button class="btn-icon" (click)="vote(news[0], false)" [disabled]="votedItems.has(news[0].url || news[0].title)" [class.voted]="votedItems.get(news[0].url || news[0].title) === false">👎</button>
+    </div>
+  </ng-template>
+</div>

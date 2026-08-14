@@ -1,0 +1,35 @@
+[
+  { "title": "Bitcoin Surges Past $65,000 as Institutional Adoption Grows", "domain": "coindesk.com", "url": "#", "relatedAsset": "bitcoin" },
+  { "title": "Ethereum Gas Fees Drop to Yearly Lows Amid Layer 2 Growth", "domain": "decrypt.co", "url": "#", "relatedAsset": "ethereum" },
+  { "title": "Solana Network Hits New ATH in Daily Active Users", "domain": "blockworks.co", "url": "#", "relatedAsset": "solana" },
+  { "title": "Cardano Deploys Major Smart Contract Upgrade", "domain": "cointelegraph.com", "url": "#", "relatedAsset": "cardano" },
+  { "title": "Dogecoin Spikes 15% Following Elon Musk Tweet", "domain": "bloomberg.com", "url": "#", "relatedAsset": "dogecoin" },
+  
+  { "title": "Bitcoin ETF Inflows Shatter Weekly Records", "domain": "yahoo.com", "url": "#", "relatedAsset": "bitcoin" },
+  { "title": "Ethereum Staking Yields Become Mainstream Fixed Income Proxy", "domain": "forbes.com", "url": "#", "relatedAsset": "ethereum" },
+  { "title": "Solana Unveils Firedancer Validator Client to Boost TPS", "domain": "theblock.co", "url": "#", "relatedAsset": "solana" },
+  { "title": "Cardano Founder Charles Hoskinson Teases New Partnership", "domain": "u.today", "url": "#", "relatedAsset": "cardano" },
+  { "title": "Dogecoin Community Funds Lunar Satellite Mission", "domain": "space.com", "url": "#", "relatedAsset": "dogecoin" },
+  
+  { "title": "Lightning Network Capacity on Bitcoin Reaches All-Time High", "domain": "coingape.com", "url": "#", "relatedAsset": "bitcoin" },
+  { "title": "Ethereum's Dencun Upgrade Brings Danksharding Closer", "domain": "coindesk.com", "url": "#", "relatedAsset": "ethereum" },
+  { "title": "Solana DeFi TVL Crosses $5 Billion Mark", "domain": "defillama.com", "url": "#", "relatedAsset": "solana" },
+  { "title": "Cardano Ecosystem Sees Influx of New NFT Projects", "domain": "dappradar.com", "url": "#", "relatedAsset": "cardano" },
+  { "title": "Dogecoin Payment Integration Coming to Major X.com Update?", "domain": "cryptoslate.com", "url": "#", "relatedAsset": "dogecoin" },
+  
+  { "title": "Bitcoin Hashrate Distribution Becomes More Decentralized", "domain": "miningpoolstats.stream", "url": "#", "relatedAsset": "bitcoin" },
+  { "title": "Vitalik Buterin Outlines Next Phase of Ethereum Roadmap", "domain": "ethereum.org", "url": "#", "relatedAsset": "ethereum" },
+  { "title": "Solana Mobile 'Saga' Sells Out Quickly Amid Airdrop Hype", "domain": "techcrunch.com", "url": "#", "relatedAsset": "solana" },
+  { "title": "Cardano Treasury Fund Approaches $1 Billion Valuation", "domain": "coinmarketcap.com", "url": "#", "relatedAsset": "cardano" },
+  { "title": "Top Analyst Predicts Dogecoin Will Break 10 Cents Soon", "domain": "benzinga.com", "url": "#", "relatedAsset": "dogecoin" },
+  
+  { "title": "Polkadot Unveils Agile Coretime for Efficient Parachains", "domain": "polkadot.network", "url": "#", "relatedAsset": "polkadot" },
+  { "title": "Chainlink CCIP Adoption Accelerates Among TradFi Giants", "domain": "chainlink.com", "url": "#", "relatedAsset": "chainlink" },
+  
+  { "title": "5 Day Trading Strategies for Highly Volatile Altcoins", "domain": "daytrading.com", "url": "#", "investorType": "Day Trader" },
+  { "title": "Scalping the Crypto Market: A Beginner's Guide", "domain": "investopedia.com", "url": "#", "investorType": "Day Trader" },
+  { "title": "Why HODLing is Statistically the Safest Crypto Strategy", "domain": "cointelegraph.com", "url": "#", "investorType": "HODLer" },
+  { "title": "Cold Storage Solutions Every HODLer Must Know About", "domain": "ledger.com", "url": "#", "investorType": "HODLer" },
+  { "title": "DeFi Yield Farming Returns to Double Digits", "domain": "defirate.com", "url": "#", "investorType": "DeFi Degen" },
+  { "title": "Top 10 Micro-Cap Gems to Watch This Month", "domain": "altcoinbuzz.io", "url": "#", "investorType": "DeFi Degen" }
+]

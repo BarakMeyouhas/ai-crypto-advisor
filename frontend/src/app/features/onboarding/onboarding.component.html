@@ -1,0 +1,94 @@
+<div class="onboarding-container">
+  <button class="theme-toggle" (click)="themeService.toggleTheme()" title="Toggle Theme">
+    <svg *ngIf="(themeService.isDarkMode$ | async)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg *ngIf="!(themeService.isDarkMode$ | async)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+
+  <div class="glass-card onboarding-card">
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width]="(step / 3) * 100 + '%'"></div>
+    </div>
+
+    <!-- Step 1: Assets -->
+    <div *ngIf="step === 1" class="step-content">
+      <h2>Select Your Coins</h2>
+      <p class="subtitle">What crypto assets are you interested in tracking?</p>
+      
+      <div class="checkbox-grid">
+        <label *ngFor="let asset of availableAssets" class="custom-checkbox glass-card">
+          <input 
+            type="checkbox" 
+            [checked]="preferences.interestedAssets.includes(asset.id)"
+            (change)="toggleArrayItem(preferences.interestedAssets, asset.id)"
+          >
+          <span>{{ asset.name }}</span>
+        </label>
+      </div>
+      
+      <div *ngIf="error && step === 1" class="error-msg mt-4">{{ error }}</div>
+      <button class="btn-primary mt-4" (click)="nextStep()">Continue</button>
+    </div>
+
+    <!-- Step 2: Persona -->
+    <div *ngIf="step === 2" class="step-content">
+      <h2>Your Persona</h2>
+      <p class="subtitle">What type of crypto investor are you?</p>
+      
+      <div class="radio-grid">
+        <label *ngFor="let type of investorTypes" class="custom-radio glass-card">
+          <input 
+            type="radio" 
+            name="investorType" 
+            [value]="type" 
+            [(ngModel)]="preferences.investorType"
+          >
+          <span>{{ type }}</span>
+        </label>
+      </div>
+
+      <div *ngIf="error && step === 2" class="error-msg mt-4">{{ error }}</div>
+      <div class="action-buttons mt-4">
+        <button class="btn-secondary" (click)="prevStep()">Back</button>
+        <button class="btn-primary" (click)="nextStep()">Continue</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Content -->
+    <div *ngIf="step === 3" class="step-content">
+      <h2>Curate Your Feed</h2>
+      <p class="subtitle">What kind of content do you want to see daily?</p>
+      
+      <div class="checkbox-grid">
+        <label *ngFor="let content of availableContent" class="custom-checkbox glass-card">
+          <input 
+            type="checkbox" 
+            [checked]="preferences.preferredContent.includes(content.id)"
+            (change)="toggleArrayItem(preferences.preferredContent, content.id)"
+          >
+          <span>{{ content.name }}</span>
+        </label>
+      </div>
+      
+      <div *ngIf="error" class="error-msg mt-4">{{ error }}</div>
+
+      <div class="action-buttons mt-4">
+        <button class="btn-secondary" (click)="prevStep()" [disabled]="isSaving">Back</button>
+        <button class="btn-primary" (click)="finish()" [disabled]="isSaving">
+          {{ isSaving ? 'Generating Feed...' : 'Build My Dashboard' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.widget-card { height: 100%; display: flex; flex-direction: column; }
+h3 { margin-bottom: 16px; color: var(--accent-secondary); }
+.placeholder-content { flex: 1; color: var(--text-secondary); font-style: italic; }
+.feedback-actions { display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end; }
+.btn-icon { background: rgba(255,255,255,0.05); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 4px 12px; cursor: pointer; color: white; transition: 0.2s; }
+.btn-icon:hover { background: rgba(255,255,255,0.1); }
+
+.insight-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  background: linear-gradient(to right, rgba(112, 0, 255, 0.05), transparent);
+  border-left: 3px solid var(--accent-secondary);
+  border-radius: 4px 12px 12px 4px;
+  margin-top: 8px;
+}
+
+.insight-content p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  font-style: italic;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
