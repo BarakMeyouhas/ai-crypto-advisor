@@ -60,7 +60,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection(); // Disabled for Render (SSL termination happens at Render's proxy)
 app.UseCors("AllowAngularFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
