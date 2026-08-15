@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngularFrontend",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200")
+            policy.AllowAnyOrigin()
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
