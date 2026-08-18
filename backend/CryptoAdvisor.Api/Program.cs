@@ -30,7 +30,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Configure JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("Jwt");
-var key = Encoding.UTF8.GetBytes(jwtSettings["Key"] ?? "ThisIsAVerySecretKeyForCryptoAdvisor123!");
+var jwtKey = jwtSettings["Key"] ?? throw new InvalidOperationException("JWT Key is missing from configuration.");
+var key = Encoding.UTF8.GetBytes(jwtKey);
 
 builder.Services.AddAuthentication(options =>
 {
