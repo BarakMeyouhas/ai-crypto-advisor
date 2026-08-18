@@ -16,7 +16,7 @@ export class MemeWidgetComponent implements OnInit {
 
   isLoading = true;
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
     this.dashboardService.getMeme().subscribe({
@@ -33,8 +33,16 @@ export class MemeWidgetComponent implements OnInit {
 
   vote(isPositive: boolean) {
     if (this.voteState !== null) return;
-    
+
+    // Optimistic UI Update: Instantly highlight the button for a fast user experience
     this.voteState = isPositive;
-    this.dashboardService.submitFeedback('Meme', this.memeUrl, isPositive).subscribe();
+
+    this.dashboardService.submitFeedback('Meme', this.memeUrl, isPositive).subscribe({
+      error: () => {
+        // If the server fails, revert the UI back to null so they can try again
+        this.voteState = null;
+        console.error('Failed to save vote to the database.');
+      }
+    });
   }
 }
