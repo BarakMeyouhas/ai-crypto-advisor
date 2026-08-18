@@ -10,7 +10,7 @@ namespace CryptoAdvisor.Api.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
-    public class DashboardController : ControllerBase
+    public class DashboardController : BaseController
     {
         private readonly AppDbContext _context;
         private readonly IDashboardService _dashboardService;
@@ -24,9 +24,7 @@ namespace CryptoAdvisor.Api.Controllers
         [HttpGet("insight")]
         public async Task<IActionResult> GetInsight()
         {
-            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (!Guid.TryParse(userIdStr, out var userId)) return Unauthorized();
-
+            var userId = GetUserId();
             var preference = await _context.UserPreferences.FirstOrDefaultAsync(p => p.UserId == userId);
             if (preference == null) return NotFound("Preferences not found.");
 
@@ -37,8 +35,7 @@ namespace CryptoAdvisor.Api.Controllers
         [HttpGet("news")]
         public async Task<IActionResult> GetNews()
         {
-            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (!Guid.TryParse(userIdStr, out var userId)) return Unauthorized();
+            var userId = GetUserId();
 
             var preference = await _context.UserPreferences.FirstOrDefaultAsync(p => p.UserId == userId);
             if (preference == null) return NotFound("User preferences not found.");
@@ -50,8 +47,7 @@ namespace CryptoAdvisor.Api.Controllers
         [HttpGet("meme")]
         public async Task<IActionResult> GetMeme()
         {
-            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (!Guid.TryParse(userIdStr, out var userId)) return Unauthorized();
+            var userId = GetUserId();
 
             var preference = await _context.UserPreferences.FirstOrDefaultAsync(p => p.UserId == userId);
 
@@ -61,8 +57,7 @@ namespace CryptoAdvisor.Api.Controllers
         [HttpPost("feedback")]
         public async Task<IActionResult> SubmitFeedback([FromBody] DTOs.FeedbackDto feedbackDto)
         {
-            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (!Guid.TryParse(userIdStr, out var userId)) return Unauthorized();
+            var userId = GetUserId();
 
             var feedback = new Models.ContentFeedback
             {

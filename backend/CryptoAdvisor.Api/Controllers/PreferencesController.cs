@@ -11,7 +11,7 @@ namespace CryptoAdvisor.Api.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
-    public class PreferencesController : ControllerBase
+    public class PreferencesController : BaseController
     {
         private readonly AppDbContext _context;
 
@@ -23,11 +23,7 @@ namespace CryptoAdvisor.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPreferences()
         {
-            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (!Guid.TryParse(userIdStr, out var userId))
-            {
-                return Unauthorized();
-            }
+            var userId = GetUserId();
 
             var preference = await _context.UserPreferences.FirstOrDefaultAsync(p => p.UserId == userId);
             
@@ -49,11 +45,7 @@ namespace CryptoAdvisor.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdatePreferences([FromBody] PreferenceDto request)
         {
-            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (!Guid.TryParse(userIdStr, out var userId))
-            {
-                return Unauthorized();
-            }
+            var userId = GetUserId();
 
             var preference = await _context.UserPreferences.FirstOrDefaultAsync(p => p.UserId == userId);
 
