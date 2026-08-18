@@ -13,20 +13,14 @@ export class DashboardService {
   constructor(private http: HttpClient) { }
 
   getInsight(): Observable<string> {
-    const token = localStorage.getItem('token');
-    return this.http.get<{ insight: string }>(`${this.apiUrl}/insight`, {
-      headers: { Authorization: `Bearer ${token}` }
-    }).pipe(
+    return this.http.get<{ insight: string }>(`${this.apiUrl}/insight`).pipe(
       map(res => res.insight),
       catchError(() => of('Unable to fetch AI insight at this time.'))
     );
   }
 
   getNews(): Observable<any[]> {
-    const token = localStorage.getItem('token');
-    return this.http.get<any[]>(`${this.apiUrl}/news`, {
-      headers: { Authorization: `Bearer ${token}` }
-    }).pipe(
+    return this.http.get<any[]>(`${this.apiUrl}/news`).pipe(
       catchError(() => of([]))
     );
   }
@@ -43,19 +37,12 @@ export class DashboardService {
   }
 
   getMeme(): Observable<{ memeUrl: string; subreddit: string; relatedAsset: string }> {
-    const token = localStorage.getItem('token');
-    return this.http.get<{ memeUrl: string; subreddit: string; relatedAsset: string }>(`${this.apiUrl}/meme`, {
-      headers: { Authorization: `Bearer ${token}` }
-    }).pipe(
+    return this.http.get<{ memeUrl: string; subreddit: string; relatedAsset: string }>(`${this.apiUrl}/meme`).pipe(
       catchError(() => of({ memeUrl: 'assets/placeholder-meme.jpg', subreddit: 'unknown', relatedAsset: 'general crypto' }))
     );
   }
 
   submitFeedback(contentType: string, contentReference: string, isPositive: boolean): Observable<any> {
-    const token = localStorage.getItem('token');
-    return this.http.post<any>(`${this.apiUrl}/feedback`, 
-      { contentType, contentReference, isPositive },
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
+    return this.http.post<any>(`${this.apiUrl}/feedback`, { contentType, contentReference, isPositive });
   }
 }

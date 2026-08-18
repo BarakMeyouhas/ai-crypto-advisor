@@ -18,16 +18,10 @@ export class PreferencesService {
   constructor(private http: HttpClient) { }
 
   getPreferences(): Observable<UserPreferences> {
-    const token = localStorage.getItem('token');
-    return this.http.get<UserPreferences>(this.apiUrl, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    return this.http.get<UserPreferences>(this.apiUrl);
   }
 
   savePreferences(preferences: UserPreferences): Observable<any> {
-    const token = localStorage.getItem('token');
-    return this.http.post(this.apiUrl, preferences, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    return this.http.post(this.apiUrl, preferences);
   }
 }
