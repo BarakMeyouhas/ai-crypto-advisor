@@ -34,7 +34,13 @@ export class PricesWidgetComponent implements OnInit {
   vote(isPositive: boolean) {
     if (this.voteState !== null) return;
     
+    // Optimistic UI update
     this.voteState = isPositive;
-    this.dashboardService.submitFeedback('Prices', this.assets.join(','), isPositive).subscribe();
+    this.dashboardService.submitFeedback('Prices', this.assets.join(','), isPositive).subscribe({
+      error: () => {
+        this.voteState = null;
+        console.error('Failed to save vote to the database.');
+      }
+    });
   }
 }

@@ -32,7 +32,13 @@ export class InsightWidgetComponent implements OnInit {
   vote(isPositive: boolean) {
     if (this.voteState !== null || !this.insight) return;
     
+    // Optimistic UI update
     this.voteState = isPositive;
-    this.dashboardService.submitFeedback('Insight', this.insight.substring(0, 100), isPositive).subscribe();
+    this.dashboardService.submitFeedback('Insight', this.insight.substring(0, 100), isPositive).subscribe({
+      error: () => {
+        this.voteState = null;
+        console.error('Failed to save vote to the database.');
+      }
+    });
   }
 }

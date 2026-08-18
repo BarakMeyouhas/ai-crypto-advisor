@@ -33,7 +33,13 @@ export class NewsWidgetComponent implements OnInit {
     const ref = article.url || article.title;
     if (this.votedItems.has(ref)) return;
     
+    // Optimistic UI update
     this.votedItems.set(ref, isPositive);
-    this.dashboardService.submitFeedback('News', ref, isPositive).subscribe();
+    this.dashboardService.submitFeedback('News', ref, isPositive).subscribe({
+      error: () => {
+        this.votedItems.delete(ref);
+        console.error('Failed to save vote to the database.');
+      }
+    });
   }
 }
